@@ -1,0 +1,70 @@
+.desk {
+  border-collapse: collapse;
+  border: none;
+
+  tr {
+    td {
+      vertical-align: top;
+    }
+    th, td {
+      border: 1rem solid white;
+      overflow-x: hidden;
+      overflow-y: scroll;
+      padding: 0;
+      margin: 0;
+      position: relative;
+
+      &:first-child {
+        border-left: none;
+      }
+      &:last-child {
+        border-right: none;
+      }
+    }
+    &:first-child {
+      height: 4rem;
+      th, td {
+        border-top: none;
+      }
+    }
+    &:last-child {
+      th, td {
+        border-bottom: none;
+      }
+    }
+  }
+
+  th {
+    span {
+      background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/textured_paper.png');
+      padding: .5rem 1rem;
+    }
+  }
+}
+.slips {
+  margin: 0;
+  padding: 0;
+}
+.slip {
+  background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/textured_paper.png');
+  display: inline-block;
+  margin: .25rem 0 0 .25rem ;
+  width: 12rem;
+  height: 12rem;
+  font-size: .8rem;
+  overflow: hidden;
+}
+
+.slip-text {
+  width: 100%;
+  height: 100%;
+  background-image: url('http://subtlepatterns2015.subtlepatterns.netdna-cdn.com/patterns/textured_paper.png');
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.slip-panel {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}

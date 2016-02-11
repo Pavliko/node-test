@@ -1,0 +1,30 @@
+<table class="desk" style="width: {{ width }}; height: {{ height }}">
+  <tr>
+    {% for id, column of columns %}
+      <th style="width: {{ column.width }};">
+        <span class="paper">{{ column.name }}</span>
+      </th>
+    {% endfor %}
+  </tr>
+  {% for rowId, row of rows %}
+    <tr style="height: {{ row.height }}">
+      {% for colId, column of columns %}
+        <td>
+          <ul class="slips" style="height: {{ row.height }}">
+          {% for slip of (row.slips[colId] || []) %}
+            <li class="slip">
+              {{ column.name }}
+              <textarea class="slip-text" readonly="true">{{ slip.text }}</textarea>
+              <div class="slip-panel">
+                {% for action of ((column.actions && column.actions.move_to) || []) %}
+                  <button data-row-to="{{ rowId }}" data-col-to="{{ colId }}">{{ action }}</button>
+                {% endfor %}
+              </div>
+            </li>
+          {% endfor %}
+          </ul>
+        </td>
+      {% endfor %}
+    </tr>
+  {% endfor %}
+</table>
